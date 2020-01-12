@@ -1,4 +1,4 @@
-.App {
+.TimePage {
   .NavBar {
     .Timer {
       position: initial;
@@ -10,8 +10,10 @@
     position: absolute;
     top: 50%;
     left: 50%;
+    text-align: center;
     margin-right: -50%;
     transform: translate(-50%, -50%);
     font-size: 100px;
+    user-select: none;
   }
 }

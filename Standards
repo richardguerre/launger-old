@@ -8,3 +8,27 @@ Styling:
       BigTimer: 144px
       PaperText: 12px
   Colors:
+
+Custom snippets:
+{
+  "Component maker": {
+		"prefix": "compmaker",
+		"body": [
+			"import React from \"react\";",
+			"",
+			"import \"./$TM_FILENAME_BASE.css\";",
+			"",
+			"const $TM_FILENAME_BASE = () => {",
+			"  return (",
+			"    <div className=\"$TM_FILENAME_BASE\">",
+			"      <h1>$TM_FILENAME_BASE</h1>",
+			"    </div>",
+			"  );",
+			"};",
+			"",
+			"export default $TM_FILENAME_BASE;",
+			""
+		],
+		"description": "Component maker"
+	}
+}

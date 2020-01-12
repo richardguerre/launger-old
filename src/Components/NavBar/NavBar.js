@@ -2,17 +2,18 @@ import React from "react";
 
 import Timer from "../Timer/Timer";
 
-import './NavBar.css'
+import "./NavBar.css";
 
 const NavBar = () => {
   return (
     <div className="NavBar">
       <ul>
-        <li>Logo</li>
-        <li style={{float:"right"}}>Theme Mode</li>
-        <li style={{float:"right"}}>
+        <li style={{ float: "left" }}>Logo</li>
+        <li>|O|</li>
+        <li>
           <Timer />
         </li>
+        <li>1299pts</li>
       </ul>
     </div>
   );
