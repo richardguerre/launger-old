@@ -1,0 +1,17 @@
+.App {
+  .NavBar {
+    .Timer {
+      position: initial;
+      transform: translate(0, 0);
+      font-size: initial;
+    }
+  }
+  .Timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+  }
+}
