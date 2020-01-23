@@ -5,13 +5,23 @@ import Timer from "../../Components/Timer/Timer";
 
 import "./TimePage.css";
 
-const IndexPage = () => {
+const TimePage = ({ history }) => {
+  const data = {
+    feature: window.sessionStorage.getItem("feature"),
+    subFeature: window.sessionStorage.getItem("subFeature")
+  };
+  console.log(data);
+
+  const handleFinish = () => {
+    history.push("/break");
+  };
+
   return (
     <div className="TimePage">
       <NavBar />
-      <Timer minutes={25} seconds={0} interval={1} />
+      <Timer minutes={10} seconds={0} onFinish={handleFinish} />
     </div>
   );
 };
 
-export default IndexPage;
+export default TimePage;

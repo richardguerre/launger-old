@@ -1,4 +1,5 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 
 import "./IndexPage.css";
 
@@ -7,6 +8,7 @@ const IndexPage = () => {
   return (
     <div className="IndexPage">
       <h1>IndexPage</h1>
+      <Redirect to="/browse"/>
     </div>
   );
 };

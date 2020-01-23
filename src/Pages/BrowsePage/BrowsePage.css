@@ -1,0 +1,9 @@
+.BrowsePage {
+  display: inline;
+}
+
+.Features {
+  display: inline;
+  margin: auto;
+  background: blue;
+}
