@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useStore } from "react-hookstore";
 
 import Timer from "../Timer/Timer";
+import Points from "../Points/Points";
 
 import "./NavBar.css";
 
@@ -22,7 +23,7 @@ const NavBar = ({minutes=5, seconds=0, onFinish, showTimer=false}) => {
         {showTimer && <li>
           <Timer minutes={minutes} seconds={seconds} onFinish={() => {console.log("Time's up!"); onFinish();}}/>
         </li>}
-        <li>1299pts</li>
+        <li><Points /></li>
       </ul>
     </div>
   );

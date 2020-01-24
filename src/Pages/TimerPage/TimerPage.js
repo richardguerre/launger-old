@@ -7,8 +7,9 @@ import "./TimerPage.css";
 
 const TimePage = ({ history }) => {
   const data = {
-    feature: window.sessionStorage.getItem("feature"),
-    subFeature: window.sessionStorage.getItem("subFeature")
+    // TODO: check if still needed
+    // feature: window.sessionStorage.getItem("feature"),
+    // subFeature: window.sessionStorage.getItem("subFeature")
   };
   console.log(data);
 

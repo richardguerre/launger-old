@@ -11,6 +11,7 @@ import NotFound from "./Pages/NotFound/NotFound";
 function App() {
   createStore("timer");
   createStore("theme");
+  createStore("points", 0);
 
   return (
     <div className="App">

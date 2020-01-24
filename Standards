@@ -1,4 +1,9 @@
 Coding:
+	Stores:
+		timer
+		points
+		feature
+		theme?
 
 Styling:
   Text:

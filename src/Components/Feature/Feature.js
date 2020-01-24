@@ -4,8 +4,9 @@ import "./Feature.css";
 
 const Feature = ({name, subName="", history}) => {
   const handleClick = () => {
-    window.sessionStorage.setItem("feature", name);
-    window.sessionStorage.setItem("subFeature", subName);
+    // TODO: set feature in session/local storage ???
+    // window.sessionStorage.setItem("feature", name);
+    // window.sessionStorage.setItem("subFeature", subName);
     history.push("/timer");
   }
 
