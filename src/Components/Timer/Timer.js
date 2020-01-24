@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useStore } from "react-hookstore";
 
+import './Timer.css';
+
 const Timer = ({ minutes = 1, seconds = 0, interval = 1, onFinish }) => {
   const [timer, setTimer] = useStore("timer");
 
