@@ -1,4 +1,4 @@
-.Feature {
+.FeatureCard {
   position: relative;
   width: 130px;
   height: 100px;
@@ -9,7 +9,7 @@
   text-decoration: none;
 }
 
-.Feature .name {
+.FeatureCard .name {
   position: absolute;
   left: 0%;
   right: 0%;
@@ -19,4 +19,4 @@
   border-radius: 0px 0px 50px 50px;
   color: white;
 }
-/*# sourceMappingURL=Feature.css.map */
+/*# sourceMappingURL=FeatureCard.css.map */

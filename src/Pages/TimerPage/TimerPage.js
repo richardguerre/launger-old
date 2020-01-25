@@ -6,13 +6,12 @@ import Timer from "../../Components/Timer/Timer";
 import "./TimerPage.css";
 
 const TimePage = ({ history }) => {
-  const data = {
-    // TODO: check if still needed
-    // feature: window.sessionStorage.getItem("feature"),
-    // subFeature: window.sessionStorage.getItem("subFeature")
-  };
-  console.log(data);
-
+  // TODO: check if still needed
+  // const data = {
+  //   feature: window.sessionStorage.getItem("feature"),
+  //   subFeature: window.sessionStorage.getItem("subFeature")
+  // };
+  // console.log(data);
   const handleFinish = () => {
     history.push("/break");
   };

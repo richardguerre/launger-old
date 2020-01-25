@@ -1,6 +1,6 @@
 import React from "react";
 
-import Feature from "../../Components/Feature/Feature";
+import FeatureCard from "../../Components/FeatureCard/FeatureCard";
 
 import "./BrowsePage.css";
 
@@ -9,9 +9,9 @@ const BrowsePage = ({history}) => {
     <div className="BrowsePage">
       <h1>BrowsePage</h1>
       <div className="Features" >
-        <Feature name={"Classic"} subName={"Classic"} history={history} />
-        <Feature name={"Youtube"} subName={"trending"} history={history} />
-        <Feature name={"Youtube"} subName={"random"} history={history} />
+        <FeatureCard name={"Classic"} subName={"Classic"} history={history} />
+        <FeatureCard name={"Youtube"} subName={"trending"} history={history} />
+        <FeatureCard name={"Youtube"} subName={"random"} history={history} />
       </div>
     </div>
   );

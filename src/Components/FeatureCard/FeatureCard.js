@@ -1,17 +1,21 @@
 import React from "react";
+import { useStore } from "react-hookstore";
 
-import "./Feature.css";
+import "./FeatureCard.css";
 
-const Feature = ({name, subName="", history}) => {
+const Feature = ({name="Classic", subName="Classic", history}) => {
+  // eslint-disable-next-line
+  const [ feature, setFeature ] = useStore("feature");
   const handleClick = () => {
     // TODO: set feature in session/local storage ???
     // window.sessionStorage.setItem("feature", name);
     // window.sessionStorage.setItem("subFeature", subName);
+    setFeature({name: name, subName: subName})
     history.push("/timer");
   }
 
   return (
-    <div className="Feature" onClick={handleClick}>
+    <div className="FeatureCard" onClick={handleClick}>
       <div className="subName">{subName}</div>
       <div className="name">{name}</div>
     </div>
