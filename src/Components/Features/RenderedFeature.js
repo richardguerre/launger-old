@@ -2,10 +2,10 @@ import React, { lazy } from "react";
 import { useStore } from "react-hookstore";
 
 //Classic
-const ClassicFt = lazy(()=> import("../../Components/Features/Classic/ClassicFt"));
+const ClassicFt = lazy(()=> import("./Classic/ClassicFt"));
 //Youtube
-const TrendingYtFt = lazy(() => import("../../Components/Features/Youtube/Trending/TrendingYtFt"));
-const RandomYtFt = lazy(() => import("../../Components/Features/Youtube/Random/RandomYtFt"));
+const TrendingYtFt = lazy(() => import("./Youtube/Trending/TrendingYtFt"));
+const RandomYtFt = lazy(() => import("./Youtube/Random/RandomYtFt"));
 
 const RenderedFeature = () => {
   const [ feature ] = useStore("feature");
