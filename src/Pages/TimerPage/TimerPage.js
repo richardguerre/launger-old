@@ -2,6 +2,7 @@ import React from "react";
 
 import NavBar from "../../Components/NavBar/NavBar";
 import Timer from "../../Components/Timer/Timer";
+import Points from "../../Components/Points/Points";
 
 import "./TimerPage.css";
 
@@ -18,8 +19,8 @@ const TimePage = ({ history }) => {
 
   return (
     <div className="TimerPage">
-      <NavBar />
-      <Timer minutes={25} seconds={0} onFinish={handleFinish} />
+      <NavBar Points={() => <Points />} />
+      <Timer minutes={0} seconds={5} onFinish={handleFinish} />
     </div>
   );
 };
