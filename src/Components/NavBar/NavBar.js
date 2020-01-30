@@ -4,7 +4,7 @@ import { useStore } from "react-hookstore";
 
 import "./NavBar.css";
 
-const NavBar = ({ Timer=undefined, Points=undefined}) => {
+const NavBar = ({ Timer, Points}) => {
   const [ theme, setTheme] = useStore("theme");
 
   const toggleTheme = () => {

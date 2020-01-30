@@ -1,23 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useStore } from "react-hookstore";
 
 import "./Points.css";
 
-const Points = () => {
-  const [points, setPoints] = useStore("points");
-
-  useEffect(() => {
-    const ticker = setTimeout(() => {
-      setPoints(points + 100);
-      // TODO: set points in session/local storage
-    }, 3000);
-
-    return () => clearTimeout(ticker);
-  });
+const Points = ({ppm}) => {
+  const [points] = useStore("points");
 
   return (
     <div className="Points">
-      <div>{points} Points</div>
+      {/* <div>{Math.round(points)} Points</div> */}
+      <div>{Math.round(points - points%ppm)} Points</div>
     </div>
   );
 };
