@@ -8,8 +8,7 @@ const Points = ({ppm}) => {
 
   return (
     <div className="Points">
-      {/* <div>{Math.round(points)} Points</div> */}
-      <div>{Math.round(points - points%ppm)} Points</div>
+      <div>{(ppm)?Math.round(points - points%ppm):Math.round(points)} Points</div>
     </div>
   );
 };

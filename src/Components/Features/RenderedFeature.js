@@ -9,7 +9,7 @@ const RandomYtFt = lazy(() => import("./Youtube/Random/RandomYtFt"));
 
 const RenderedFeature = () => {
   const [ feature ] = useStore("feature");
-  console.log(feature);
+  // console.log(feature);
   const { name, subName} = feature;
   // TODO: turn if statement tree into switch case
   switch(name) {

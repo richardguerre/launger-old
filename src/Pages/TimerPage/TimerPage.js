@@ -1,5 +1,5 @@
-import React, {useEffect} from "react";
-import { useStore} from "react-hookstore";
+import React, { useEffect } from "react";
+import { useStore } from "react-hookstore";
 
 import NavBar from "../../Components/NavBar/NavBar";
 import Timer from "../../Components/Timer/Timer";
@@ -8,12 +8,14 @@ import Points from "../../Components/Points/Points";
 import "./TimerPage.css";
 
 const TimePage = ({ history }) => {
-  // TODO: connect this to feature
-  let minutes = 25, seconds = 0, interval = 1;
-  let pps = 1;
-  let ppm = pps*60 || 100;
+  // TODO: connect this to Feature's pps and  ppm
   const [timer, setTimer] = useStore("timer");
   const [points, setPoints] = useStore("points");
+  let minutes = 0,
+    seconds = 5,
+    interval = 1;
+  let pps = 1,
+    ppm = pps * 60 || 100;
 
   // TODO: check if still needed
   // const data = {
@@ -28,29 +30,34 @@ const TimePage = ({ history }) => {
   }, []);
 
   useEffect(() => {
-    const _1secTicker = setTimeout( () => {
-      if(timer - interval < 0){
-        clearTimeout(_1secTicker);
+    const ticker = setTimeout(() => {
+      if (timer - interval < 0) {
+        clearTimeout(ticker);
         handleFinish();
       } else {
-        setTimer(timer - interval)
-        setPoints(points+ppm/30);
+        setTimer(timer - interval);
+        setPoints(points + ppm / 60);
       }
-    }, interval*1000)
+    }, interval * 1000);
 
     return () => {
-      clearTimeout(_1secTicker)
+      clearTimeout(ticker);
     };
-  })
-  
+  });
+
+  const addMinute = () => {
+    setTimer(timer + 60);
+  };
+
   const handleFinish = () => {
     history.push("/break");
   };
 
   return (
     <div className="TimerPage">
-      <NavBar Points={() => <Points ppm={ppm}/>} />
-      <Timer onFinish={handleFinish} />
+      <NavBar Points={() => <Points ppm={ppm} />} />
+      <Timer />
+      {timer < 10 && <button onClick={addMinute}>Add a minute!</button>}
     </div>
   );
 };

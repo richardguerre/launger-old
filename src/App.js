@@ -14,6 +14,7 @@ function App() {
   createStore("theme", 1);
   createStore("feature", {name: "Classic", subName: "Classic"});
   createStore("points", 0);
+  createStore("timerState", false); // false = countdown, true = countup
 
   return (
     <div className="App">
