@@ -3,6 +3,8 @@ import { useStore } from "react-hookstore";
 
 import "./FeatureCard.css";
 
+
+// TODO: Change name, shouldn't be called "Feature"
 const Feature = ({name="Classic", subName="Classic", history}) => {
   // eslint-disable-next-line
   const [ feature, setFeature ] = useStore("feature");
@@ -15,7 +17,7 @@ const Feature = ({name="Classic", subName="Classic", history}) => {
   }
 
   return (
-    <div className="FeatureCard" onClick={handleClick}>
+    <div className="FeatureCard actionable" onClick={handleClick}>
       <div className="subName">{subName}</div>
       <div className="name">{name}</div>
     </div>

@@ -11,7 +11,6 @@ import "./BreakPage.css";
 const BreakPage = ({ history }) => {
   const [timer, setTimer] = useStore("timer");
   const [points, setPoints] = useStore("points");
-  const [timerState, setState] = useStore("timerState");
   // TODO: Change this!!
   let minutes = 0,
     seconds = 5,
@@ -25,24 +24,23 @@ const BreakPage = ({ history }) => {
   // console.log(data);
 
   useEffect(() => {
-    setTimer(minutes * 60 + seconds);
-    setState(false);
+    setTimer({time: minutes*60+seconds, isCountingdown: true});
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     const ticker = setTimeout(() => {
-      if (!timerState) {
-        if (timer - interval < 0) {
-          setState(true);
+      if (timer.isCountingdown) {
+        if (timer.time - interval < 0) {
+          setTimer({...timer, isCountingdown: false});
         } else {
-          setTimer(timer - interval);
+          setTimer({ ...timer, time: timer.time - interval});
         }
       } else {
-        if (timer % 10 === 0 && timer > 0) {
+        if (timer.time % 10 === 0 && timer.time > 0) {
           setPoints(points - 10);
         }
-        setTimer(timer + interval);
+        setTimer({...timer, time: timer.time + interval});
       }
     }, interval * 1000);
 
@@ -61,7 +59,7 @@ const BreakPage = ({ history }) => {
       <Suspense fallback={<h1>Loading...</h1>}>
         <RenderedFeature />
       </Suspense>
-      {(timer <= 10 || timerState) && (
+      {(timer.time <= 10 || !timer.isCountingdown) && (
         <button onClick={handleFinish}>Get back to studying</button>
       )}
     </div>

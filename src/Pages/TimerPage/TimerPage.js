@@ -25,17 +25,17 @@ const TimePage = ({ history }) => {
   // console.log(data);
 
   useEffect(() => {
-    setTimer(minutes * 60 + seconds);
+    setTimer({...timer, time: minutes*60+seconds});
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     const ticker = setTimeout(() => {
-      if (timer - interval < 0) {
+      if (timer.time - interval < 0) {
         clearTimeout(ticker);
         handleFinish();
       } else {
-        setTimer(timer - interval);
+        setTimer({...timer, time: timer.time - interval});
         setPoints(points + ppm / 60);
       }
     }, interval * 1000);
@@ -46,7 +46,7 @@ const TimePage = ({ history }) => {
   });
 
   const addMinute = () => {
-    setTimer(timer + 60);
+    setTimer({...timer, time: timer + 60});
   };
 
   const handleFinish = () => {
@@ -57,7 +57,7 @@ const TimePage = ({ history }) => {
     <div className="TimerPage">
       <NavBar Points={() => <Points ppm={ppm} />} />
       <Timer />
-      {timer < 10 && <button onClick={addMinute}>Add a minute!</button>}
+      {timer.time < 10 && <button onClick={addMinute}>Add a minute!</button>}
     </div>
   );
 };

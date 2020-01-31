@@ -10,11 +10,10 @@ import BreakPage from "./Pages/BreakPage/BreakPage";
 import NotFound from "./Pages/NotFound/NotFound"; 
 
 function App() {
-  createStore("timer", 0);
+  createStore("timer", {time: 0, isCountingdown: true});
   createStore("theme", 1);
   createStore("feature", {name: "Classic", subName: "Classic"});
   createStore("points", 0);
-  createStore("timerState", false); // false = countdown, true = countup
 
   return (
     <div className="App">
