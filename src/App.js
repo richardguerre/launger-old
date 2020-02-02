@@ -8,11 +8,13 @@ import BrowsePage from "./Pages/BrowsePage/BrowsePage";
 import TimerPage from "./Pages/TimerPage/TimerPage";
 import BreakPage from "./Pages/BreakPage/BreakPage";
 import NotFound from "./Pages/NotFound/NotFound"; 
+import LoginPage from "./Pages/LoginPage/LoginPage";
+import SignupPage from "./Pages/SignupPage/SignupPage";
 
 function App() {
   createStore("timer", {time: 0, isCountingdown: true});
-  createStore("theme", 1);
-  createStore("feature", {name: "Classic", subName: "Classic"});
+  createStore("theme", true);
+  createStore("feature", {name: "Classic", subName: "Classic", ppm: 100});
   createStore("points", 0);
 
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/browse" component={BrowsePage} />
           <Route path="/timer" component={TimerPage} />
           <Route path="/break" component={BreakPage} />
+          <Route path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignupPage} />
           <Route exact path="/djehuiroq8igbh8qpinurf839niueshf0239hfnudihr9pi23298fnr9wnu923ni98ewniuh9we" component={() => <h1>Created by Richard M. GUERRE</h1>} />
           <Route component={NotFound} />
         </Switch>

@@ -11,12 +11,11 @@ const TimePage = ({ history }) => {
   // TODO: connect this to Feature's pps and  ppm
   const [timer, setTimer] = useStore("timer");
   const [points, setPoints] = useStore("points");
+  const [feature] = useStore("feature");
+  const {ppm} = feature;
   let minutes = 0,
     seconds = 5,
     interval = 1;
-  let pps = 1,
-    ppm = pps * 60 || 100;
-
   // TODO: check if still needed
   // const data = {
   //   feature: window.sessionStorage.getItem("feature"),
@@ -25,7 +24,7 @@ const TimePage = ({ history }) => {
   // console.log(data);
 
   useEffect(() => {
-    setTimer({...timer, time: minutes*60+seconds});
+    setTimer({ time: minutes * 60 + seconds, isCountingdown: true });
     // eslint-disable-next-line
   }, []);
 
@@ -35,7 +34,7 @@ const TimePage = ({ history }) => {
         clearTimeout(ticker);
         handleFinish();
       } else {
-        setTimer({...timer, time: timer.time - interval});
+        setTimer({ ...timer, time: timer.time - interval });
         setPoints(points + ppm / 60);
       }
     }, interval * 1000);
@@ -46,7 +45,7 @@ const TimePage = ({ history }) => {
   });
 
   const addMinute = () => {
-    setTimer({...timer, time: timer + 60});
+    setTimer({ ...timer, time: timer.time + 60 });
   };
 
   const handleFinish = () => {
