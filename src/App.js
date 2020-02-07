@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { createStore } from "react-hookstore";
+import firebase from "firebase/app";
+import "./Helpers/Firebase";
 
 //TODO: lazy load pages
 import IndexPage from "./Pages/IndexPage/IndexPage";
@@ -12,6 +14,10 @@ import LoginPage from "./Pages/LoginPage/LoginPage";
 import SignupPage from "./Pages/SignupPage/SignupPage";
 
 function App() {
+  // TODO: put inside useEffect()
+  firebase.auth().onAuthStateChanged( (user) => {
+    console.log(user);
+  })
   createStore("timer", {time: 0, isCountingdown: true});
   createStore("theme", true);
   createStore("feature", {name: "Classic", subName: "Classic", ppm: 100});

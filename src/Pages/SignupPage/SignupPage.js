@@ -1,13 +1,12 @@
 import React from "react";
-import firebase from "../../Helpers/Firebase";
-
+import firebase from "firebase/app";
 import "./SignupPage.css";
 
 const SignupPage = ({ history }) => {
   const handleSignUp = e => {
     e.preventDefault();
     const { email, password, confirm } = e.target.elements;
-    
+
     if (email.value.length < 4) {
       alert("Please enter an email address.");
       return;
@@ -16,7 +15,7 @@ const SignupPage = ({ history }) => {
       alert("Please enter a password.");
       return;
     }
-    if (password.value !== confirm.value){
+    if (password.value !== confirm.value) {
       alert("Passwords don't match");
       return;
     }
@@ -25,7 +24,10 @@ const SignupPage = ({ history }) => {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email.value, password.value)
-      .then( (data) => console.log(data))
+      .then(data => {
+        console.log(data);
+        history.push("/browse");
+      })
       .catch(function(error) {
         // Handle Errors here.
         let errorCode = error.code;
@@ -38,8 +40,20 @@ const SignupPage = ({ history }) => {
         console.log(error);
       });
 
-    // TODO: determine signup flow
-    // history.push("/browse")
+    // TODO: finalize signup flow
+  };
+
+  const provider = new firebase.auth.GoogleAuthProvider();
+  const handleGoogleLogin = () => {
+    firebase
+      .auth()
+      .signInWithPopup(provider)
+      .then(result => {
+        console.log(result);
+      })
+      .catch(err => {
+        console.log(err);
+      });
   };
 
   // const handleSubmit = (e) => {
@@ -59,24 +73,18 @@ const SignupPage = ({ history }) => {
     <div className="SignupPage">
       <h1>Sign Up</h1>
       <form onSubmit={handleSignUp}>
-        <label>
-          Email:
-          <input type="email" placeholder="Please enter email" name="email"/>
-          <br />
-        </label>
-        <label>
-          Password:
-          <input type="password" placeholder="Please enter password" name="password"/>
-          <br />
-        </label>
-        <label>
-          Confirm:
-          <input type="password" placeholder="Please enter password" name="confirm"/>
-          <br />
-        </label>
+        <input type="email" placeholder="Email" name="email" />
+        <br />
+        <input type="password" placeholder="Password" name="password" />
+        <br />
+        <input type="password" placeholder="Confirm" name="confirm" />
+        <br />
         <input type="submit" />
       </form>
-      <div className="SignupPage__other">Or login with:</div>
+      <div className="SignupPage__other">
+        Or login with:
+        <button onClick={handleGoogleLogin}>Login with google</button>
+      </div>
     </div>
   );
 };

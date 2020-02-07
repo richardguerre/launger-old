@@ -5,7 +5,8 @@ import NavBar from "../../Components/NavBar/NavBar";
 
 import "./BrowsePage.css";
 
-const BrowsePage = ({ history }) => {
+const BrowsePage = ({ history, location }) => {
+  location.state && console.log(location.state.accessToken);
   const features = [
     {
       name: "Classic",
